@@ -29,27 +29,26 @@ class HomePageView extends StatelessWidget {
           centerTitle: true,
           elevation: 0,
         ),
-        body: Stack(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             homePageController.getShortenLinkHistoryList.isEmpty
                 ? emptyPage()
-                : ListView.builder(
-                    itemCount:
-                        homePageController.getShortenLinkHistoryList.length,
-                    itemBuilder: (context, index) {
-                      return LinkHistoryCard(
-                        homePageController.getShortenLinkHistoryList[index],
-                        homePageController.getCopiedLinkIndex == index
-                            ? true
-                            : false,
-                        index,
-                      );
-                    },
+                : Expanded(
+                    child: SizedBox(
+                      child: ListView.builder(
+                        itemCount:
+                            homePageController.getShortenLinkHistoryList.length,
+                        itemBuilder: (context, index) {
+                          return LinkHistoryCard(
+                            homePageController.getShortenLinkHistoryList[index],
+                            index,
+                          );
+                        },
+                      ),
+                    ),
                   ),
-            Positioned(
-              bottom: 0,
-              child: CustomBottomBar(),
-            )
+            CustomBottomBar()
           ],
         ),
       ),

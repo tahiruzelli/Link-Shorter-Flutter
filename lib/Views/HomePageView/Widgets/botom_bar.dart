@@ -29,11 +29,13 @@ class CustomBottomBar extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Obx(
-                () => CustomTextField(homePageController.errorStatus.value),
-              ),
+              CustomTextField(),
               const SizedBox(height: 20),
-              BlueButton(buttonContent: 'SHORTEN IT!'),
+              BlueButton(
+                buttonContent: 'SHORTEN IT!',
+                buttonFunction: () =>
+                    homePageController.onShortenItButtonPressed(),
+              ),
             ],
           )
         ],

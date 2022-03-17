@@ -8,14 +8,12 @@ import '../../../Globals/Constans/colors.dart';
 
 class CopyButton extends StatelessWidget {
   late int currentIndex;
-  late bool isCopied;
   late String shortLink;
-  CopyButton(
-      {Key? key,
-      required this.currentIndex,
-      required this.isCopied,
-      required this.shortLink})
-      : super(key: key);
+  CopyButton({
+    Key? key,
+    required this.currentIndex,
+    required this.shortLink,
+  }) : super(key: key);
   HomePageController homePageController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -28,20 +26,26 @@ class CopyButton extends StatelessWidget {
             successSnackBar("copy operation successful");
           });
         },
-        child: Container(
-          width: Get.width * 0.8,
-          height: Get.height * 0.06,
-          decoration: BoxDecoration(
-            color: isCopied ? colorPurple : colorBlue,
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Center(
-            child: Text(
-              !isCopied ? 'COPY' : 'COPIED!',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+        child: Obx(
+          () => Container(
+            width: Get.width * 0.8,
+            height: Get.height * 0.06,
+            decoration: BoxDecoration(
+              color: homePageController.getCopiedLinkIndex.value == currentIndex
+                  ? colorPurple
+                  : colorBlue,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+              child: Text(
+                homePageController.getCopiedLinkIndex.value != currentIndex
+                    ? 'COPY'
+                    : 'COPIED!',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),

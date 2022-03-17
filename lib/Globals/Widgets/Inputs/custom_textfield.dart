@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:link_shorter/Controllers/HomePageController/home_page_controller.dart';
-
 import '../../Constans/colors.dart';
 
-// customTextField(context, bool errosStatus) {
-//   MainController mainController = Get.find();
-//   return
-// }
 class CustomTextField extends StatelessWidget {
-  late bool errorStatus;
-  CustomTextField(this.errorStatus);
   HomePageController homePageController = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -22,21 +15,28 @@ class CustomTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         border: Border.all(
           width: 2,
-          color: errorStatus ? colorRed : Colors.transparent,
+          color: homePageController.errorStatus.value
+              ? colorRed
+              : Colors.transparent,
         ),
       ),
       child: Padding(
         padding: const EdgeInsets.only(top: 4.0),
-        child: TextField(
-          controller: homePageController.getShortenLinkController,
-          textAlign: TextAlign.center,
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: 'Shorten a link here...',
-            hintStyle: TextStyle(
-              color: errorStatus ? colorRed : colorGrey,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+        child: Obx(
+          () => TextField(
+            controller: homePageController.getShortenLinkController,
+            textAlign: TextAlign.center,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: homePageController.errorStatus.value
+                  ? "Please add a link here"
+                  : 'Shorten a link here...',
+              hintStyle: TextStyle(
+                color:
+                    homePageController.errorStatus.value ? colorRed : colorGrey,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
           ),
         ),

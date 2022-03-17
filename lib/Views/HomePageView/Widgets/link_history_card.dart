@@ -2,47 +2,47 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:link_shorter/Controllers/HomePageController/home_page_controller.dart';
+import 'package:link_shorter/Models/in_storage_shorten_link_model.dart';
 
 import '../../../Globals/Constans/colors.dart';
 import 'copy_button.dart';
 
 class LinkHistoryCard extends StatelessWidget {
-  Map datas;
-  bool isCopied;
+  InStorageShortenLinkModel shortenLink;
   int index;
-  LinkHistoryCard(this.datas, this.isCopied, this.index);
+  LinkHistoryCard(this.shortenLink, this.index);
   HomePageController homePageController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
+      padding: const EdgeInsets.only(
+        bottom: 20.0,
+        left: 20,
+        right: 20,
+      ),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          color: colorWhite,
         ),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Container(
-                        child: Text(
-                          datas['longLink'],
-                          style: TextStyle(
-                            color: colorBlack,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          overflow: TextOverflow.ellipsis,
+                      child: Text(
+                        shortenLink.longLink ?? "",
+                        style: TextStyle(
+                          color: colorBlack,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     InkWell(
@@ -64,7 +64,7 @@ class LinkHistoryCard extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  datas['shortenLink'],
+                  shortenLink.shortenLink ?? "",
                   style: TextStyle(
                     color: colorBlue,
                     fontSize: 20,
@@ -74,9 +74,9 @@ class LinkHistoryCard extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               CopyButton(
-                  currentIndex: index,
-                  isCopied: isCopied,
-                  shortLink: datas['shortenLink']),
+                currentIndex: index,
+                shortLink: shortenLink.shortenLink ?? "",
+              ),
             ],
           ),
         ),

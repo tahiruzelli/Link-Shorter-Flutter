@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:link_shorter/Controllers/HomePageController/home_page_controller.dart';
-import 'package:link_shorter/Globals/Widgets/Alerts/custom_snackbar.dart';
-
 import '../../Constans/colors.dart';
 
 class BlueButton extends StatelessWidget {
   late String buttonContent;
-  BlueButton({required this.buttonContent, Key? key}) : super(key: key);
-  HomePageController homePageController = Get.find();
+  late Function buttonFunction;
+  BlueButton(
+      {required this.buttonContent, required this.buttonFunction, Key? key})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
       child: InkWell(
         onTap: () {
-          homePageController.onShortenItButtonPressed();
+          buttonFunction();
         },
         child: Container(
           width: Get.width * 0.8,

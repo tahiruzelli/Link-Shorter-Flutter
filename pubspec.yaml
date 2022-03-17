@@ -38,10 +38,14 @@ dependencies:
   flutter_svg: ^1.0.3
   get_storage: ^2.0.3
   http: ^0.13.4
+  intro_slider: ^3.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver: # Eklendi
+    sdk: flutter  # Eklendi
+  test: ^1.14.4   # Eklendi
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
