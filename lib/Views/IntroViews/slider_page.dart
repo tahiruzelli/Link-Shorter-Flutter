@@ -1,6 +1,7 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:link_shorter/Controllers/MainController/main_controller.dart';
+import 'package:link_shorter/Globals/Constans/asset_paths.dart';
 import 'package:link_shorter/Globals/Constans/colors.dart';
 import '../../Models/slider_model.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,7 @@ class _HomeState extends State<SliderPage> {
               child: Align(
                 alignment: Alignment.topCenter,
                 child: SvgPicture.asset(
-                  'assets/logo.svg',
+                  logoPath,
                   height: 50,
                   width: Get.width,
                 ),

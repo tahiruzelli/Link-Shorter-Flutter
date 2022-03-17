@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:link_shorter/Controllers/MainController/main_controller.dart';
+import 'package:link_shorter/Globals/Constans/strings.dart';
 import 'package:link_shorter/Globals/Widgets/Alerts/custom_snackbar.dart';
 import 'package:link_shorter/Models/in_storage_shorten_link_model.dart';
 import '../../Globals/Constans/get_storage_keys.dart';
@@ -68,7 +69,7 @@ class HomePageController extends GetxController {
     if (result.ok!) {
       return result.result;
     } else {
-      errorSnackBar(result.error ?? "Unknown Error");
+      errorSnackBar(result.error ?? unknownError);
       return null;
     }
   }

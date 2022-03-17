@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
 import 'package:link_shorter/Controllers/HomePageController/home_page_controller.dart';
+import 'package:link_shorter/Globals/Constans/strings.dart';
 import 'package:link_shorter/Globals/Widgets/Alerts/custom_snackbar.dart';
 
 import '../../../Globals/Constans/colors.dart';
@@ -23,7 +24,7 @@ class CopyButton extends StatelessWidget {
         onTap: () {
           homePageController.setCopiedLinkIndex(currentIndex);
           Clipboard.setData(ClipboardData(text: shortLink)).then((_) {
-            successSnackBar("copy operation successful");
+            successSnackBar(coppySuccessful);
           });
         },
         child: Obx(

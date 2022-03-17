@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:link_shorter/Controllers/HomePageController/home_page_controller.dart';
+import 'package:link_shorter/Globals/Constans/asset_paths.dart';
 import 'package:link_shorter/Models/in_storage_shorten_link_model.dart';
 
 import '../../../Globals/Constans/colors.dart';
@@ -50,7 +51,7 @@ class LinkHistoryCard extends StatelessWidget {
                         homePageController.removeShortenLinkHistoryList(index);
                         homePageController.setCopiedLinkIndex(-1);
                       },
-                      child: SvgPicture.asset('assets/del.svg'),
+                      child: SvgPicture.asset(deleteIconPath),
                     )
                   ],
                 ),

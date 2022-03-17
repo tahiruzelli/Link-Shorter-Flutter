@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:link_shorter/Globals/Constans/asset_paths.dart';
+import 'package:link_shorter/Globals/Constans/strings.dart';
 import '../../Controllers/HomePageController/home_page_controller.dart';
 import '../../Globals/Constans/colors.dart';
-import 'Widgets/botom_bar.dart';
+import 'Widgets/bottom_bar.dart';
 import 'Widgets/link_history_card.dart';
 
 class HomePageView extends StatelessWidget {
-  HomePageController homePageController = Get.put(HomePageController());
-  HomePageView({Key? key}) : super(key: key);
+  HomePageController homePageController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => Scaffold(
-        backgroundColor: const Color(0xfff0f1f6),
+        backgroundColor: colorMainColor,
         appBar: AppBar(
-          backgroundColor: const Color(0xfff0f1f6),
+          backgroundColor: colorMainColor,
           title: homePageController.getShortenLinkHistoryList.isEmpty
-              ? SvgPicture.asset('assets/logo.svg')
+              ? SvgPicture.asset(logoPath)
               : Text(
-                  'Your Link History',
+                  linkHistory,
                   style: TextStyle(
                     color: colorBlack,
                     fontSize: 20,
@@ -61,14 +62,14 @@ class HomePageView extends StatelessWidget {
         Align(
           alignment: Alignment.topCenter,
           child: SvgPicture.asset(
-            'assets/illustration.svg',
+illustrationImagePath,
             height: Get.height * 0.4,
             width: Get.width,
             fit: BoxFit.fitWidth,
           ),
         ),
         Text(
-          "Let's get started!",
+          letsStart,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -78,7 +79,7 @@ class HomePageView extends StatelessWidget {
         SizedBox(
           width: Get.width * 0.75,
           child: Text(
-            "Paste your first link into the field to shorten it",
+            pasteLink,
             style: TextStyle(
               fontSize: 24,
               color: colorBlack,

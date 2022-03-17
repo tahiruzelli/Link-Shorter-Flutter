@@ -5,21 +5,23 @@ import 'package:link_shorter/Globals/Constans/get_storage_keys.dart';
 import 'package:link_shorter/Globals/app_state.dart';
 import 'package:link_shorter/Views/IntroViews/intro_view.dart';
 import '../../Views/HomePageView/home_page.dart';
+import '../HomePageController/home_page_controller.dart';
 
 class MainController extends GetxController {
   late AppState appState;
   bool? isUserSeeIntro;
+
   void onSkipButtonPressed() {
     isUserSeeIntro = true;
     GetStorage().write(isUserSeeIntroKey, isUserSeeIntro);
-    Get.offAll(HomePageView());
+    Get.off(HomePageView());
   }
 
   Widget firstRoute() {
-    if (isUserSeeIntro ?? false) {
-      return IntroView();
-    } else {
+    if (isUserSeeIntro!) {
       return HomePageView();
+    } else {
+      return IntroView();
     }
   }
 

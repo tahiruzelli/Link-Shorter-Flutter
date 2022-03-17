@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:link_shorter/Globals/Constans/asset_paths.dart';
 import 'package:link_shorter/Globals/Widgets/Buttons/blue_button.dart';
 import 'slider_page.dart';
 
@@ -22,12 +23,9 @@ class IntroView extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.center,
-            child: Text(
-              "Shortly",
-              style: titleTextStyle,
-            ),
+            child: SvgPicture.asset(logoPath),
           ),
-          SvgPicture.asset('assets/illustration.svg'),
+          SvgPicture.asset(illustrationImagePath),
           Text(
             'More than just\nshorter links',
             style: titleTextStyle,
@@ -41,7 +39,7 @@ class IntroView extends StatelessWidget {
           BlueButton(
             buttonContent: "START",
             buttonFunction: () {
-              Get.to(SliderPage());
+              Get.off(SliderPage());
             },
           )
         ],

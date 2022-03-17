@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:link_shorter/Controllers/HomePageController/home_page_controller.dart';
-
+import 'package:link_shorter/Views/HomePageView/CustomPaint/RPSCustomPainter.dart';
 import '../../../Globals/Constans/colors.dart';
 import '../../../Globals/Widgets/Buttons/blue_button.dart';
 import '../../../Globals/Widgets/Inputs/custom_textfield.dart';
@@ -22,9 +21,13 @@ class CustomBottomBar extends StatelessWidget {
             color: colorPurple,
           ),
           Positioned(
-            top: 0,
-            right: 0,
-            child: SvgPicture.asset('assets/shape.svg'),
+            top: Get.width / 6 + 10,
+            left: Get.width * 0.4,
+            child: CustomPaint(
+              size: Size(Get.width * 0.45,
+                  (Get.width * 0.45 * 0.540084388185654).toDouble()),
+              painter: RPSCustomPainter(),
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
