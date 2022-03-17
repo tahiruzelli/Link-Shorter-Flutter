@@ -1,16 +1,14 @@
-# link_shorter
+# Link Shorter
 
-A new Flutter project.
+Grisoft Task Projesi
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Proje 2 temel sayfadan oluşan basit bir link kısaltma hizmetidir.
 
-A few resources to get you started if this is your first Flutter project:
+Controller dosyamdaki değişkenlerimi private yaparak güvenliği arttırmayı hedefledim bu değiskenlere ise get ve set metotlari ile erişerek gerektiği yerde koşul ifadeleri kullanarak oop yapısına uyum sağladım.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Verilerimi  GetStorage yardımı ile uygulama çerezi ile çalışır hale getirdim.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+State management olarak Getx paketini kullandım.
+
+Zorlanılan yerler: Projede en çok zorlandığım ve zamanımın belkide yarısını alan Shape.svg dosyasını custom paint ile çizdirmek oldu. %100 olarak istediğim şekli edemesemde benzer bir şekil elde etmeye çalıştım.
